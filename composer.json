@@ -1,6 +1,11 @@
 {
   "name": "mgldev/aoc20",
   "description": "AOC20",
+  "config": {
+    "platform": {
+      "php": "~7.4.0"
+    }
+  },
   "authors": [
     {
       "name": "Michael Leach",
