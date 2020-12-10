@@ -2,6 +2,8 @@
 
 namespace AOC\D3\P1;
 
+use InvalidArgumentException;
+
 /**
  * Class Grid
  *
@@ -26,13 +28,67 @@ class Grid
     }
 
     /**
+     * @return Grid
+     */
+    public function reset(): Grid
+    {
+        return $this->setPosition(0, 0);
+    }
+
+    /**
+     * @param array $map
+     *
+     * @return Grid
+     */
+    public function follow(array $map): Grid
+    {
+        foreach ($map as $instruction) {
+            $direction = substr($instruction, 0, 1);
+            $places = (int) substr($instruction, 1, strlen($instruction) - 1);
+            $this->move($direction, $places);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param string $direction
+     * @param int $places
+     *
+     * @return Grid
+     */
+    public function move(string $direction, int $places): Grid
+    {
+        switch (strtolower($direction)) {
+            case 'u':
+                return $this->up($places);
+
+            case 'r':
+                return $this->right($places);
+
+            case 'd':
+                return $this->down($places);
+
+            case 'l':
+                return $this->left($places);
+
+            default:
+                throw new InvalidArgumentException('Invalid movement');
+        }
+    }
+
+    /**
      * @param int $x
      * @param int $y
+     *
+     * @return Grid
      */
-    public function setPosition(int $x, int $y)
+    public function setPosition(int $x, int $y): Grid
     {
         $this->x = $x;
         $this->y = $y;
+
+        return $this;
     }
 
     public function up(int $places): Grid

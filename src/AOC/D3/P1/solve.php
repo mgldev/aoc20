@@ -16,13 +16,7 @@ foreach ($data as &$line) {
     }
 }
 
-$grid = new Grid($data);
-
-$treeCount = 0;
-
-while (($cell = $grid->getCurrentCell()) !== null) {
-    $treeCount += (int) ($cell === '#');
-    $grid->right(3)->down(1);
-}
+$treeCounter = new TreeCounter(new Grid($data));
+$treeCount = $treeCounter->getTreeCount(['R3', 'D1']);
 
 echo "Part 1 is $treeCount\n";
