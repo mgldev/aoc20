@@ -1,0 +1,4 @@
+Start by considering the whole range, indexes 0 through 7
+R means to take the upper half, keeping indexes 4 through 7
+L means to take the lower half, keeping indexes 4 through 5
+The final R keeps the upper of the two, index 5

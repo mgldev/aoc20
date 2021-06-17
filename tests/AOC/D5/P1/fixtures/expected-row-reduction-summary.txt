@@ -1,0 +1,8 @@
+Start by considering the whole range, indexes 0 through 127
+F means to take the lower half, keeping indexes 0 through 63
+B means to take the upper half, keeping indexes 32 through 63
+F means to take the lower half, keeping indexes 32 through 47
+B means to take the upper half, keeping indexes 40 through 47
+B means to take the upper half, keeping indexes 44 through 47
+F means to take the lower half, keeping indexes 44 through 45
+The final F keeps the lower of the two, index 44
