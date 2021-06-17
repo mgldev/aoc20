@@ -45,7 +45,10 @@ class SeatResolver
      */
     private function resolveRow(Partition $partition): ?int
     {
-        $summary = $this->boundaryReducer->reduce(new Boundary(0, 127), $partition->getRowInstructions());
+        $summary = $this->boundaryReducer->reduce(
+            new Boundary(0, 127),
+            $partition->getRowInstructions()
+        );
 
         return $summary->getResult();
     }
@@ -59,7 +62,10 @@ class SeatResolver
      */
     private function resolveColumn(Partition $partition): int
     {
-        $summary = $this->boundaryReducer->reduce(new Boundary(0, 7), $partition->getColumnInstructions());
+        $summary = $this->boundaryReducer->reduce(
+            new Boundary(0, 7),
+            $partition->getColumnInstructions()
+        );
 
         return $summary->getResult();
     }
