@@ -59,6 +59,12 @@ class Program
         );
     }
 
+    /**
+     * @param int $position
+     * @param Instruction $instruction
+     *
+     * @return $this
+     */
     public function setInstruction(int $position, Instruction $instruction): self
     {
         $this->instructions[$position] = $instruction;

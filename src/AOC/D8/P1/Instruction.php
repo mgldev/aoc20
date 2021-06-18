@@ -44,6 +44,7 @@ class Instruction
 
     /**
      * @param string $command
+     *
      * @return Instruction
      */
     public function setCommand(string $command): Instruction

@@ -60,10 +60,6 @@ class ProgramRepairer
      */
     private function flipInstruction(Instruction $instruction): void
     {
-        if ($instruction->getCommand() === 'jmp') {
-            $instruction->setCommand('nop');
-        } else {
-            $instruction->setCommand('jmp');
-        }
+        $instruction->setCommand($instruction->getCommand() === 'jmp' ? 'nop' : 'jmp');
     }
 }
